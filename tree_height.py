@@ -50,7 +50,7 @@ def main():
     elif input_method.startswith("F"):
         print("File path: ")
         file_name = input()
-        file_path = "./"
+        file_path = "./test/"
         if "a" not in file_name:
             with open(file_path + file_name, mode = "r") as file:
                 n = file.readline()

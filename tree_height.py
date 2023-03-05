@@ -8,9 +8,9 @@ import numpy
 def compute_height(n, parents):
     # Write this function
     nodes = int(n)
-    parents_arr = numpy.fromiter(parents.split(), dtype = int)
+    # parents_arr = numpy.fromiter(parents.split(), dtype = int)
     # parents_arr = numpy.fromstring(parents, dtype = int, sep = " ")
-    # parents_arr = list(map(int, parents.split()))
+    parents_arr = list(map(int, parents.split()))
 
     node_list = []
     for i in range(nodes):

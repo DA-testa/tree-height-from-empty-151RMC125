@@ -7,6 +7,7 @@ import numpy
 
 def compute_height(n, parents):
     # Write this function
+    # Your code here
     nodes = int(n)
     parents_arr = numpy.fromiter(parents.split(), dtype = int)
     root = 0
@@ -34,12 +35,10 @@ def compute_height(n, parents):
 
         return max_height
     
-    # Your code here
     return biggest_height(node_list, root, h)
 
 
 def main():
-    # implement input form keyboard and from files
     input_method = input()
     n = ""
     parents = ""
@@ -60,6 +59,7 @@ def main():
         exit()
     height = compute_height(n, parents)
     print(height)
+    # implement input form keyboard and from files
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     # input number of elements

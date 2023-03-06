@@ -8,35 +8,34 @@ import numpy
 def compute_height(n, parents):
     # Write this function
     nodes = int(n)
-    # parents_arr = numpy.fromiter(parents.split(), dtype = int)
-    parents_arr = numpy.fromstring(parents, dtype = int, sep = " ")
-    # parents_arr = list(map(int, parents.split()))
+    parents_arr = numpy.fromiter(parents.split(), dtype = int)
+    root = 0
+    h = 1
 
     node_list = []
     for i in range(nodes):
         node_list.append([])
 
-    root = 0
-
-    for bot_ind in range(nodes):
-        top_ind = parents_arr[bot_ind]
-        if top_ind == -1:
-            root = bot_ind
+    for leaf in range(nodes):
+        branch = parents_arr[leaf]
+        if branch == -1:
+            root = leaf
         else:
-            node_list[top_ind].append(bot_ind)
+            node_list[branch].append(leaf)
     
-    height = 1
-
-    def biggest_height(node_list, i, height):
-        if not node_list[i]:
-            return height
+    def biggest_height(node_list, i, h):
         max_height = 0
+
+        if not node_list[i]:
+            return h
+        
         for j in node_list[i]:
-            max_height = max(max_height, biggest_height(node_list, j, height + 1))
+            max_height = max(max_height, biggest_height(node_list, j, h + 1))
+
         return max_height
     
     # Your code here
-    return biggest_height(node_list, root, height)
+    return biggest_height(node_list, root, h)
 
 
 def main():
